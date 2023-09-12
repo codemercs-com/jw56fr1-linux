@@ -34,7 +34,7 @@ We provide some code examples for the JoyWarrior56FR1 by using the [LibUSB API](
 
 
 ## Test hardware (host system)
-For our examples on Linux we are using almost a Raspberry PI for development and testing. The examples should work on a x86 or x64 based system also. If you are using the 3rd party APIs please follow the install instructions of the specific API.
+For our examples on Linux we are using a Raspberry PI for development and testing. The examples should work on a x86 or x64 based system also. If you are using the 3rd party APIs please follow the install instructions of the specific API.
 
 
 
