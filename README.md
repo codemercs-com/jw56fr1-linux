@@ -37,6 +37,10 @@ We provide some code examples for the JoyWarrior56FR1 by using the [LibUSB API](
 For our examples on Linux we are using almost a Raspberry PI for development and testing. The examples should work on a x86 or x64 based system also. If you are using the 3rd party APIs please follow the install instructions of the specific API.
 
 
+## Read/Write permissions for JoyWarrior56FR1
+To access the JoyWarrior56FR1, some API need access to the JoyWarrior56FR1.
+For this you have to add a rules files in */etc/udev/rules.d* to grand access for users. Copy the *84-joywarrior56fr1.rules* file to */etc/udev/rules.d*.
+
 
 ## Links and further information
 [Product site](https://www.codemercs.com/en/joystick/acceleration) for more informations, datasheets, and software/tools for the JoyWarrior56FR1 devices  
