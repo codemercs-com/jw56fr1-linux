@@ -21,6 +21,37 @@ X = (B1 << 8) | B0
 Because the JoyWarrior56FR1 is a joystick device, the data will have an offset of 0x7FFF (32767) to center the axis. To get an positiv and negativ result you have to decrease the axe value by 0x7FFF each.  
 
 
+## Data conversion
+JoyWarrior56FR1 will have its zero/middle position at 32767, the negative maximum at 0, and the positive maximum at 65535. To obtain positive and/or negative values, you have to subtract 32767 from the axis.
+A variety of conversion factors are required based on the default settings of the sensor.
+
+Acceleration:
+```
+2G: 0.061
+4G: 0.122
+8G: 0.244
+16G: 0.488
+```
+
+Gyroscope:
+```
+125 dps: 4.375
+245 dps: 8.75
+500 dps: 17.50
+1000 dps: 35.00
+2000 dps: 70.00
+```
+
+
+To obtain a readable value, the following formula must be used (Z acceleration for example):
+
+```
+Z_g = (Z_acc - offset) * nG
+Z_g = (16218 - 32767) * 0.061
+Z_g = -1.009 G
+```
+
+
 # Sensor parameters
 The JoyWarrior56FR1 can be configured with some parameters. For more information about the parameters please take a look into the [Datasheet](https://www.codemercs.com/downloads/joywarrior/JW56FR1_Datasheet.pdf). 
 
