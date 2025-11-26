@@ -65,13 +65,17 @@ try:
     while True:
 
         data = ep_accel_in.read(ep_accel_in.wMaxPacketSize, timeout = 0)
-        data_raw = struct.unpack('<31H', data)  # H = unsigned
+        data_raw = struct.unpack('<30H', data[:60])  # H = unsigned, last 2 Bytes of data are temperatur values
 
         for i in range(0, 30, 3):
             x = data_raw[i] - AXE_OFFSET
             y = data_raw[i+1] - AXE_OFFSET
             z = data_raw[i+2] - AXE_OFFSET
             print(f"Set {i//3}: X={x:6d}  Y={y:6d}  Z={z:6d}")
+        
+        # Temperatur (last 2 Bytes of data)
+        # temperatur = struct.unpack('<H', data[60:62])[0]
+        # print(f"Temperatur: {temperatur}")
       
 
 except KeyboardInterrupt:
